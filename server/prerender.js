@@ -12,6 +12,9 @@ serviceUrl = process.env.PRERENDERIO_SERVICE_URL || serviceUrl;
 
 if (token) {
   if (serviceUrl) prerenderio.set('prerenderServiceUrl', serviceUrl);
+  
+  // force these to be in the list
+  prerenderio.crawlerUserAgents.push(['googlebot', 'yahoo', 'bingbot']);
   prerenderio.set('prerenderToken', token);
 
   prerenderio.set('afterRender', function afterRender(error) {
